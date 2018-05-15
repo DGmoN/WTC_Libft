@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/12 17:39:19 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/15 20:06:41 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/15 21:00:52 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/15 21:05:55 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <string.h>
 #include "lib_ft.h"
-void ft_bzero(void * start, size_t len)
+
+void	*ft_memalloc(size_t size)
 {
-	ft_bzero(start, 0, len);
+	void *ret;
+
+	ret = malloc(size);
+	ft_bzero(ret, size);
+	return (ret);
 }
