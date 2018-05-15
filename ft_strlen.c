@@ -6,16 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:35:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/12 17:35:42 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/15 07:31:59 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(const char * str)
-{
-	int a;
+#include "lib_ft.h"
 
-	a = 0;
-	while (str[a] != '\0')
-		a++;
-	return (a);
+int	ft_strlen(const char *str)
+{
+	return (ft_memchr(str, '\0', 1024));
 }

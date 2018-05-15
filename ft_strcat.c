@@ -6,18 +6,18 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 16:24:53 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/14 18:20:15 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/15 07:35:09 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "lib_ft.h"
 
-char * ft_strcat(char * a, const char * b)
+char	*ft_strcat(char *a, const char *b)
 {
-	ft_size_t size_a;
-	ft_size_t size_b;
-	char * ret;
+	ft_size_t	size_a;
+	ft_size_t	size_b;
+	char		*ret;
 
 	size_a = ft_strlen(a);
 	size_b = ft_strlen(b);

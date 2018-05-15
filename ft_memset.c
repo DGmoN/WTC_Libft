@@ -6,16 +6,17 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 19:27:44 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/12 17:42:58 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/15 07:48:21 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void * ft_memset(void * dest, int sub, int len)
-{
-	unsigned char * rp;
-	
-	rp = (unsigned char *) dest;
+#include "lib_ft.h"
 
+void	*ft_memset(void *dest, int sub, int len)
+{
+	t_byte *rp;
+
+	rp = (t_byte *)dest;
 	while (len > 0)
 	{
 		*rp = sub;
@@ -23,5 +24,4 @@ void * ft_memset(void * dest, int sub, int len)
 		len--;
 	}
 	return (rp);
-
 }

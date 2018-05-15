@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/15 07:44:35 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/15 07:44:38 by wgourley         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lib_ft.h"
 
-void ft_putstr(char * str)
+void	ft_putstr(char *str)
 {
 	int index;
 
 	index = 0;
-	while(str[index])
+	while (str[index])
 	{
 		ft_putchar(str[index++]);
 	}
