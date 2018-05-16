@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 07:11:43 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:40:12 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/16 18:06:25 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string.h>
 
 void	*ft_memalloc(size_t size);
-char	*ft_newstr(size_t len);
+char	*ft_strnew(size_t len);
 void	ft_memdel(void **ap);
 void	ft_strclr(char *src);
 void	ft_putchar(char e);
