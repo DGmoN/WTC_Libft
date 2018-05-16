@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/11 20:27:55 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:15:04 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/16 08:40:57 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/16 08:45:13 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_ft.h"
 #include <string.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t num)
+char	*ft_strmap(char const *srt, char (*f)(char))
 {
-	unsigned char *out;
-	const unsigned char * in;
-	char holder;
+	char	*ret;
+	size_t	len;
+	size_t	pos;
 
-	out = dest;
-	in = (const unsigned char *) src;
-	out = (unsigned char *) dest;
-	while (num > 0)
+	pos = 0;
+	len = ft_strlen(srt);
+	ret = ft_strnew(len);
+	
+	while(srt[len] != '\0')
 	{
-		holder = in[num];
-		*(out + num) = holder;
-		num --;
+		ret[pos] = f(srt[pos]);
+		pos++;
 	}
-	return (dest);
 }

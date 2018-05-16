@@ -6,16 +6,17 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 19:43:19 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/14 16:23:39 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/16 08:16:14 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_ft.h" 
+#include <string.h>
 
-void * ft_memccpy(void * dest, const void * src, int limchar, ft_size_t maxchar)
+void * ft_memccpy(void * dest, const void * src, int limchar, size_t maxchar)
 {
 	unsigned char * ed;
-	ft_size_t index;
+	size_t index;
 
 	index = 0;
 	ed = dest;

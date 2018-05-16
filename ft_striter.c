@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/11 20:27:55 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:15:04 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/16 08:31:13 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/16 08:35:08 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_ft.h"
-#include <string.h>
-
-void	*ft_memmove(void *dest, const void *src, size_t num)
+void	ft_striter(char *str, void (*f)(char *))
 {
-	unsigned char *out;
-	const unsigned char * in;
-	char holder;
-
-	out = dest;
-	in = (const unsigned char *) src;
-	out = (unsigned char *) dest;
-	while (num > 0)
+	while(*str != '\0')
 	{
-		holder = in[num];
-		*(out + num) = holder;
-		num --;
+		f(str);
+		str++;
 	}
-	return (dest);
 }

@@ -6,11 +6,14 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 21:18:06 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/15 21:18:38 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/16 07:43:58 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "lib_ft.h"
 
-
+char	*ft_strnew(size_t len)
+{
+	return (ft_memalloc(len + 1));
+}

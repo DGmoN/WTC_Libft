@@ -6,20 +6,21 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 16:35:12 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/15 07:43:09 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/16 14:21:43 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_ft.h"
+#include <string.h>
 
-void ft_memcpy(void * dest, const void * src, ft_size_t len)
+void ft_memcpy(void * dest, const void * src, size_t len)
 {
-	ft_size_t zero;
+	size_t zero;
 
 	zero = 0;
 	while (zero <= len)
 	{
-		*(char *) dest++ = *(char *) src ++;
+		*(unsigned char *) dest++ = *(unsigned char *) src ++;
 		zero++;
 	}
 }

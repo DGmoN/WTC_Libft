@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/11 20:27:55 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:15:04 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/16 08:35:59 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/16 08:39:17 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_ft.h"
-#include <string.h>
-
-void	*ft_memmove(void *dest, const void *src, size_t num)
+void	ft_striteri(char *str, void (*f)(unsigned int, char *))
 {
-	unsigned char *out;
-	const unsigned char * in;
-	char holder;
+	unsigned int index;
 
-	out = dest;
-	in = (const unsigned char *) src;
-	out = (unsigned char *) dest;
-	while (num > 0)
+	index = 0;
+	while (str[index] != '\0')
 	{
-		holder = in[num];
-		*(out + num) = holder;
-		num --;
+		f(index, str + index);
+		index++;
 	}
-	return (dest);
 }
