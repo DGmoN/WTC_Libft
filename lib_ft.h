@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 07:11:43 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/17 16:07:31 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/17 17:53:36 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # define WSPACE(x) (x == '\t' || x == '\n' || x == ' ')
 
 #include <string.h>
+
+struct s_strpoint
+{
+	size_t start;
+	size_t end;
+};
+
+typedef struct s_strpoint t_spoint;
 
 void	*ft_memalloc(size_t size);
 char	*ft_strnew(size_t len);
