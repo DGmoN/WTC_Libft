@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:35:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:09:31 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/17 15:21:43 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	return (*(size_t *) ft_memchr(str, '\0', 1024));
+	size_t strlen;
+
+	strlen = 0;
+	while (str[strlen] != '\0')
+		strlen++;
+	return (strlen);
 }

@@ -13,9 +13,9 @@ make_dir:
 	mkdir $(BUILD_DIR)
 
 make_test_dir:
-	@mkdir $(TEST_OUTPUT_DIR) -p
+	@mkdir $(TEST_OUTPUT_DIR)
 
-test: make_test_dir
+test: $(TEST_OUTPUT_DIR)
 	@echo "Making test: $(FIND)"
 	@$(GC) $(TEST_SRC)/$(FIND) $(SRC_DIR) -o '$(TEST_OUTPUT_DIR)/test_$(FIND)'
 

@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:25:37 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/12 17:47:24 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/17 15:18:27 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,41 @@ static	int	ft_numlen(int num, int base)
 	return (index);
 }
 
-char	*	ft_itoa(int num, char * buffer, int base)
+char	*ft_itoa(int num)
 {
-	int strLen;
-	int index;
-	int holder;
-	int cchar;
+	char *ret;
+	
+	ret = ft_itoa_b(num, ret, 10);
+	return (ret);
+}
+
+char	*ft_itoa_b(int num, char *buffer, int base)
+{
+	int		strLen;
+	int		index;
+	int		holder;
+	int		cchar;
+	char	*bbuffer;
 
 	strLen = ft_numlen(num, base);
 	if(num < 0 && base == 10) strLen += 1;
-	buffer = (char *) malloc(sizeof(char *) * (strLen + 1));
+	bbuffer = ft_strnew(strLen);
 	index = strLen - 1;
 	holder = num;
 	while (index >= 0)
 	{
-		if (buffer[index] == '-') break; 	
+		if (bbuffer[index] == '-') break; 	
 		cchar = holder % base;
 		if(cchar < 0 && base == 10)
 		{
-			buffer[0] = '-';
+			bbuffer[0] = '-';
 			cchar *= -1;
 		}
-		buffer[index] = ITOA_CHARS[cchar];
+		bbuffer[index] = ITOA_CHARS[cchar];
 		holder /= base;
 		index--;
 	}
-	buffer[strLen] = '\0';
-	return (buffer);
+	ft_putline(bbuffer);
+	bbuffer[strLen] = '\0';
+	return (bbuffer);
 }
