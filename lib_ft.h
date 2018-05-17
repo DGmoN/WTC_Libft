@@ -6,14 +6,14 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 07:11:43 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/17 15:11:57 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/17 16:07:31 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_FT_H
 # define LIB_FT_H
 # define ITOA_CHARS "0123456789ABCDEFG"
-
+# define ABS(x) ((x < 0)? x * -1: x)
 # define WSPACE(x) (x == '\t' || x == '\n' || x == ' ')
 
 #include <string.h>
