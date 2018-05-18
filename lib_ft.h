@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 07:11:43 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/18 08:46:09 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/18 14:41:05 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putstr(char *str);
 void	ft_putline(char *str);
 size_t	ft_strlen(const char *str);
 char	*ft_itoa(int num);
-char	*ft_itoa_b(int num, char *buffer, int base);
+char	*ft_itoa_b(int num, int base);
 void	ft_bzero(void *offset, size_t length);
 void	ft_memcpy(void *dest, const void *src, size_t len);
 void	*ft_memccpy(void *dest, const void *src, int lim, size_t max);
@@ -38,6 +38,7 @@ int		ft_memcmp(const void *one, const void *two, size_t len);
 char	*ft_strdup(const char *src);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strccpy(char *dest, const char *src, size_t maxchar);
+char	*ft_strncpy(char *dest, const char *src, size_t max);
 char	*ft_strcat(char *a, const char *b);
 void	ft_striter(char *str, void (*f)(char *));
 void	ft_striteri(char *str, void (*f)(unsigned int, char *));

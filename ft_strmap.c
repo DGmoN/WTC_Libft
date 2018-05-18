@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 08:40:57 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:45:13 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/18 14:42:18 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ char	*ft_strmap(char const *srt, char (*f)(char))
 		ret[pos] = f(srt[pos]);
 		pos++;
 	}
+	return (ret);
 }

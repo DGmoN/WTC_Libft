@@ -6,13 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:25:37 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/17 15:18:27 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/18 14:40:40 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "lib_ft.h"
-
+#include <string.h>
 static	int	ft_numlen(int num, int base)
 {
 	int remainder;
@@ -32,13 +32,10 @@ static	int	ft_numlen(int num, int base)
 
 char	*ft_itoa(int num)
 {
-	char *ret;
-	
-	ret = ft_itoa_b(num, ret, 10);
-	return (ret);
+	return (ft_itoa_b(num, 10));
 }
 
-char	*ft_itoa_b(int num, char *buffer, int base)
+char	*ft_itoa_b(int num, int base)
 {
 	int		strLen;
 	int		index;

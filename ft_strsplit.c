@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 16:33:16 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/18 12:01:29 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/18 14:25:16 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,33 @@ static	int	seek(const char *str, const char e, int	*start, int *end)
 	{
 		if (str[x] == e)
 		{
-			*end = x;
-			return (1);
-		}
+			if (!seeking)
+				*start = x + 1;
+			else
+			{
+				*end = x;
+				return (1);
+			}
+		} 
+		else if (!seeking)
+			seeking = 1;
 		x++;
 	}
 	*end = x;
-	return (*end - *start);
+	return (x);
+}
+
+static	char	*next_str(const char *str, char e, int *start, int *end)
+{
+	char	*holder;
+
+	if (!seek(str, e, start, end))
+		return ((char *) 0);
+	holder = ft_strnew(*end - *start);
+	ft_strncpy(holder, str + *start, *end - *start);
+	*start = *end + 1;
+	holder = ft_strtrim(holder);
+	return (holder);
 }
 
 static	int	count_sectors(const char *str, char e)
@@ -38,20 +58,40 @@ static	int	count_sectors(const char *str, char e)
 	int		start;
 	int		end;
 	char	*holder;
+	int		len;
+	int		count;
 
 	start = 0;
 	end = 0;
-	while (seek(str, e, &start, &end))
+	count = 0;
+	len = ft_strlen(str);
+	while (seek(str, e, &start, &end) <= len)
 	{
 		holder = ft_strnew(end - start);
 		ft_strncpy(holder, str + start, end-start);
-		printf("%s\n",holder);
 		start = end + 1;
+		count++;
 	}
-
+	return (count);
 }
 
 char	**ft_strsplit(const char *str, char delim)
 {
-	count_sectors(str, delim);
+	int		strcount;
+	char 	**ret;
+	int		index;
+	int		start;
+	int		end;
+
+	strcount = count_sectors(str, delim);
+	ret = ft_memalloc(sizeof(char **) * strcount);
+	index = 0;
+	start = 0;
+	end = 0;
+	while (index < strcount)
+	{
+		ret[index] = next_str(str, delim, &start, &end);
+		index++;
+	}
+	return (ret);
 }
