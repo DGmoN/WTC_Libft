@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 00:08:48 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 00:14:17 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "lib_ft.h"
+#include <string.h>
 
-char	*ft_strncat(char *dest, char *src, size_t max)
+/* max is the length of the resulting string */
+char	*ft_strlcat(char *dest, char const *src, size_t max)
 {
-	size_t index;
-	size_t dest_len;
+	size_t	dest_len;
+	size_t	index;
 
 	dest_len = ft_strlen(dest);
-	index = 0;
-	while (index < max && src[index] != '\0')
+	while (src[index] != '\0' && index < max - dest_len - 1)
 	{
 		dest[dest_len + index] = src[index];
 		index++;
 	}
-	dest[dest_len + max] = '\0';
+	dest[max] = '\0';
 	return (dest);
 }

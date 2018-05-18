@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 01:40:43 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 01:47:25 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include "lib_ft.h"
-
-char	*ft_strncat(char *dest, char *src, size_t max)
+int	ft_isascii(char a)
 {
-	size_t index;
-	size_t dest_len;
-
-	dest_len = ft_strlen(dest);
-	index = 0;
-	while (index < max && src[index] != '\0')
-	{
-		dest[dest_len + index] = src[index];
-		index++;
-	}
-	dest[dest_len + max] = '\0';
-	return (dest);
+	return (a >= 32 || a <= 126);
 }

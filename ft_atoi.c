@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 00:47:15 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 01:17:07 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "lib_ft.h"
+#include <string.h>
 
-char	*ft_strncat(char *dest, char *src, size_t max)
+int	ft_atoi(char const *str)
 {
-	size_t index;
-	size_t dest_len;
+	size_t	strlen;
+	size_t	index;
+	int	neg;
+	int	ret;
 
-	dest_len = ft_strlen(dest);
+	strlen = ft_strlen(str);
 	index = 0;
-	while (index < max && src[index] != '\0')
+	ret = 0;
+	neg = str[index] == '-';
+	index += neg;
+	while (str[index] != '\0')
 	{
-		dest[dest_len + index] = src[index];
+		if (str[index] > '9' || str[index] < '0')
+			return (0);
+		ret += (str[index] - '0') * ft_intpow(10, strlen - index);
 		index++;
 	}
-	dest[dest_len + max] = '\0';
-	return (dest);
+	return (ret);
 }

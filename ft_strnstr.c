@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 00:44:16 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 00:45:11 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "lib_ft.h"
+#include <string.h>
 
-char	*ft_strncat(char *dest, char *src, size_t max)
+char	*ft_strnstr(char const *big, char const *little, size_t len)
 {
-	size_t index;
-	size_t dest_len;
+	size_t	ltlen;
+	size_t	index;
+	size_t	bglen;
+	char	*ret;
 
-	dest_len = ft_strlen(dest);
+	ltlen = ft_strlen(little);
+	if(ltlen <= 0)
+		return (big);
+	bglen = len;
+	ret = (char *) NULL;
 	index = 0;
-	while (index < max && src[index] != '\0')
+
+	while (big[index] != '\0' && bglen - index > ltlen)
 	{
-		dest[dest_len + index] = src[index];
+		if (ft_memcmp(big + index, little, ltlen) == 0)
+		{
+			ret = big+index;
+			break ;
+		}
 		index++;
 	}
-	dest[dest_len + max] = '\0';
-	return (dest);
+	return (ret);
+	
 }

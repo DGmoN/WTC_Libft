@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 01:48:58 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 01:50:01 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include "lib_ft.h"
-
-char	*ft_strncat(char *dest, char *src, size_t max)
+int	ft_toupper(char a)
 {
-	size_t index;
-	size_t dest_len;
-
-	dest_len = ft_strlen(dest);
-	index = 0;
-	while (index < max && src[index] != '\0')
-	{
-		dest[dest_len + index] = src[index];
-		index++;
-	}
-	dest[dest_len + max] = '\0';
-	return (dest);
+	if (a >= 'a' && a <= 'z')
+		return ((a - 'a') + 'A');
+	return (a);
 }

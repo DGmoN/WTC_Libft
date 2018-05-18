@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 20:20:51 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:20:26 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 00:26:01 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/19 00:27:27 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "lib_ft.h"
+#include <string.h>
 
-char	*ft_strncat(char *dest, char *src, size_t max)
+char	*ft_strrchr(char const *hay, int needle)
 {
-	size_t index;
-	size_t dest_len;
+	size_t	offset;
+	char	*last;
 
-	dest_len = ft_strlen(dest);
-	index = 0;
-	while (index < max && src[index] != '\0')
+	last = (char *) NULL;
+	offset = 0;
+	while(hay[offset - 1] != '\0')
 	{
-		dest[dest_len + index] = src[index];
-		index++;
+		if(hay[offset] == needle)
+			last = hay + offset;
+		offset++;
 	}
-	dest[dest_len + max] = '\0';
-	return (dest);
+	return (last);
 }
