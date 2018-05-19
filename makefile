@@ -20,11 +20,8 @@ $(NAME): $(OBJ_DIR)
 	@ranlib $(NAME)
 
 $(OBJ_DIR): $(DEP)
-	@echo "Making $*"
-	@$(CC) -c -o $@ $*.c $(FLAGS)
-
-make: $(OBJ_DIR)
-	@echo "DONE"
+	@echo "Making $@"
+	$(GC) -c $*.c -o $@ $(FLAGS)
 
 re: fclean all;
 

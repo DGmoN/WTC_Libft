@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_itoa(int num);
 char	*ft_itoa_b(int num, int base);
 void	ft_bzero(void *offset, size_t length);
-void	ft_memcpy(void *dest, const void *src, size_t len);
+void	*ft_memcpy(void *dest, const void *src, size_t len);
 void	*ft_memccpy(void *dest, const void *src, int lim, size_t max);
 void	*ft_memset(void *dest, int val, int len);
 void	*ft_memmove(void *dest, const void *src, size_t len);
@@ -40,7 +40,7 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strccpy(char *dest, const char *src, size_t maxchar);
 char	*ft_strncpy(char *dest, const char *src, size_t max);
 char	*ft_strcat(char *a, const char *b);
-char	*ft_strlcat(char *dest, const char *src, size_t dstlen);
+size_t  ft_strlcat(char *dest, const char *src, size_t dstlen);
 void	ft_striter(char *str, void (*f)(char *));
 void	ft_striteri(char *str, void (*f)(unsigned int, char *));
 char	*ft_strtrim(char const *e);
@@ -50,4 +50,3 @@ int	ft_isdigit(char e);
 int	ft_isalpha(char e);
 int	ft_isascii(char e);
 #endif
-
