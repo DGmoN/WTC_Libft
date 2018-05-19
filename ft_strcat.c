@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "lib_ft.h"
+#include "libft.h"
 
 char	*ft_strcat(char *a, const char *b)
 {

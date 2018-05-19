@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_ft.h"
+#include "libft.h"
 #include <string.h>
 
 char	*ft_strmapi(char const *srt, char (*f)(unsigned int, char))

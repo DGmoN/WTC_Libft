@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include "lib_ft.h"
+#include "libft.h"
 
 char	*ft_strnew(size_t len)
 {

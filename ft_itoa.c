@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "lib_ft.h"
+#include "libft.h"
 #include <string.h>
 static	int	ft_numlen(int num, int base)
 {

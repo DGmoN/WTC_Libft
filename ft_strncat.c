@@ -12,7 +12,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "lib_ft.h"
+#include "libft.h"
 
 char	*ft_strncat(char *dest, char *src, size_t max)
 {

@@ -6,11 +6,11 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:44:16 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 00:45:11 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/19 13:52:01 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_ft.h"
+#include "libft.h"
 #include <string.h>
 
 char	*ft_strnstr(char const *big, char const *little, size_t len)
@@ -22,7 +22,7 @@ char	*ft_strnstr(char const *big, char const *little, size_t len)
 
 	ltlen = ft_strlen(little);
 	if(ltlen <= 0)
-		return (big);
+		return ((char *) big);
 	bglen = len;
 	ret = (char *) NULL;
 	index = 0;
@@ -31,7 +31,7 @@ char	*ft_strnstr(char const *big, char const *little, size_t len)
 	{
 		if (ft_memcmp(big + index, little, ltlen) == 0)
 		{
-			ret = big+index;
+			ret = (char *) big+index;
 			break ;
 		}
 		index++;
