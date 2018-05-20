@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 08:18:09 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:20:01 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:41:12 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 void	ft_strclr(char *src)
 {
-	while(*src != '\0')
-	{
-		*src = '\0';
-		src++;
-	}
+	size_t len;
+
+	len = ft_strlen(src);
+	bzero(src, len);
 }

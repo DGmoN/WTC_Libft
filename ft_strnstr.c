@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:44:16 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 13:52:01 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:30:18 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,19 @@ char	*ft_strnstr(char const *big, char const *little, size_t len)
 	char	*ret;
 
 	ltlen = ft_strlen(little);
-	if(ltlen <= 0)
-		return ((char *) big);
+	if (ltlen <= 0)
+		return ((char *)big);
 	bglen = len;
-	ret = (char *) NULL;
+	ret = (char *)NULL;
 	index = 0;
-
 	while (big[index] != '\0' && bglen - index > ltlen)
 	{
 		if (ft_memcmp(big + index, little, ltlen) == 0)
 		{
-			ret = (char *) big+index;
+			ret = (char *)big + index;
 			break ;
 		}
 		index++;
 	}
 	return (ret);
-	
 }

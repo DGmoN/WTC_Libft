@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 08:45:56 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/18 14:42:28 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:33:04 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ char	*ft_strmapi(char const *srt, char (*f)(unsigned int, char))
 	pos = 0;
 	len = ft_strlen(srt);
 	ret = ft_strnew(len);
-	
-	while(srt[len] != '\0')
+	while (srt[len] != '\0')
 	{
 		ret[pos] = f(pos, srt[pos]);
 		pos++;

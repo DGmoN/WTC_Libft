@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:47:15 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 01:17:07 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 12:05:23 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_atoi(char const *str)
 {
 	size_t	strlen;
 	size_t	index;
-	int	neg;
-	int	ret;
+	int		neg;
+	int		ret;
 
 	strlen = ft_strlen(str);
 	index = 0;

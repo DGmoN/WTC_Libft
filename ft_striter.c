@@ -6,13 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/16 08:31:13 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 08:35:08 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:36:51 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *str, void (*f)(char *))
 {
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		f(str);
 		str++;

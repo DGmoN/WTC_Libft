@@ -6,22 +6,24 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 20:47:44 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/11 21:01:58 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:21:37 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void * ft_memchr(const void * hay, int needle, int len)
-{
-	int index;
-	char * in;
+#include <string.h>
 
-	in = (char *) hay;
+void	*ft_memchr(const void *hay, int needle, size_t len)
+{
+	size_t			index;
+	unsigned char	*in;
+
+	in = (unsigned char *)hay;
 	index = 0;
-	while (index <= len)
+	while (index < len)
 	{
-		if( *(in + index) == needle)
-			return (in + index);
+		if (in[index] == needle)
+			return ((void *)hay + index);
 		index++;
 	}
-	return ((void *)0);
+	return ((void *)NULL);
 }

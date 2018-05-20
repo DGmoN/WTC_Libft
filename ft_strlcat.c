@@ -6,14 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:08:48 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 13:51:18 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:35:57 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-/* max is the length of the resulting string */
 size_t	ft_strlcat(char *dest, char const *src, size_t max)
 {
 	size_t	dest_len;
