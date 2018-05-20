@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/15 07:48:55 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 17:36:40 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/20 17:33:17 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/20 17:34:14 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	ft_putchar(char e)
+void	ft_putchar_fd(char e, int fd)
 {
-	ft_putchar_fd(e, 0);
+	write(fd, $e, 1);
 }

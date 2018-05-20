@@ -9,7 +9,7 @@ OBJ_DIR:=ft_atoi.o ft_bzero.o ft_strtrim.o\
 	ft_strcmp.o ft_strcpy.o ft_strdup.o ft_striter.o ft_striteri.o \
 	ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o \
 	ft_strncmp.o ft_strncpy.o ft_strnew.o ft_strnstr.o ft_strrchr.o \
-	ft_strsplit.o ft_strstr.o ft_tolower.o ft_toupper.o
+	ft_strsplit.o ft_strstr.o ft_tolower.o ft_toupper.o ft_putchar_fd.o
 
 NAME=libft.a
 
