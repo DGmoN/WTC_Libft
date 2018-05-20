@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 20:27:55 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 15:35:50 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 15:59:24 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	*ft_memmove(void *dest, const void *src, size_t num)
 {
 	t_byte *in;
 	t_byte *out;
-	t_byte holder;
 	size_t index;
 	
 	in = (t_byte *)src;
@@ -26,9 +25,11 @@ void	*ft_memmove(void *dest, const void *src, size_t num)
 	index = 0;
 
 	while (index < num)
-	{
-		holder = in[num - index - 1];
-		out[num - index - 1] = holder;
+	{	
+		if (dest < src)
+			out[index] = in[index];
+		else
+			out[num - index - 1] = in[num - index - 1];
 		index++;
 	}
 
