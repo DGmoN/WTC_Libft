@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:25:37 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 12:04:22 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:38:09 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,7 @@ static	int	ft_numlen(int num, int base)
 	return (index);
 }
 
-char	*ft_itoa(int num)
-{
-	return (ft_itoa_b(num, 10));
-}
-
-char	*ft_itoa_b(int num, int base)
+static char	*ft_itoa_b(int num, int base)
 {
 	int		str_len;
 	int		index;
@@ -67,4 +62,9 @@ char	*ft_itoa_b(int num, int base)
 	ft_putendl(bbuffer);
 	bbuffer[str_len] = '\0';
 	return (bbuffer);
+}
+
+char		*ft_itoa(int num)
+{
+	return (ft_itoa_b(num, 10));
 }

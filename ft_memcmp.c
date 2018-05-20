@@ -6,27 +6,27 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 21:07:29 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 12:09:30 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 14:07:01 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(const void *one, const void *two, int len)
-{
-	int				sum;
-	unsigned char	a;
-	unsigned char	b;
+#include "libft.h"
+#include <string.h>
 
-	sum = 0;
-	while (len >= 0)
+int	ft_memcmp(const void *one, const void *two, size_t len)
+{
+	size_t	index;
+	t_byte	a;
+	t_byte	b;
+
+	index = 0;
+	while (index < len)
 	{
-		a = ((char *)one)[len] * len;
-		b = ((char *)two)[len] * len;
-		sum += a - b;
-		len--;
+		a = ((t_byte *) one)[index];
+		b = ((t_byte *) two)[index];
+		if (a != b)
+			return (a - b);
+		index++;
 	}
-	if (sum > 0)
-		return (1);
-	if (sum < 0)
-		return (-1);
 	return (0);
 }

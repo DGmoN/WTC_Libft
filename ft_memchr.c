@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 20:47:44 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 13:21:37 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:36:15 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *hay, int needle, size_t len)
 	index = 0;
 	while (index < len)
 	{
-		if (in[index] == needle)
+		if (in[index] == (unsigned char)needle)
 			return ((void *)hay + index);
 		index++;
 	}

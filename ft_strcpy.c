@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 16:02:50 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 14:22:28 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 14:19:55 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ char	*ft_strcpy(char *dest, const char *src)
 
 	length = ft_strlen(src);
 	ft_memcpy(dest, src, length + 1);
-	dest[length + 1] = '\0';
-	return (dest);
+	return (dest + length);
 }

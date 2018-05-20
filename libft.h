@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 11:21:33 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 12:43:57 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/20 14:07:37 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define WSPACE(x) (x == '\t' || x == '\n' || x == ' ')
 
 # include <string.h>
+typedef	unsigned char	t_byte;
 
 int		ft_atoi(char const *str);
 void	ft_bzero(void *start, size_t len);
@@ -26,11 +27,10 @@ int		ft_isalnum(char e);
 int		ft_isascii(char a);
 int		ft_isdigit(char e);
 char	*ft_itoa(int a);
-char	*ft_itoa_b(int a, int base);
 void	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *dest, const void *src, int limchar, size_t maxchar);
 void	*ft_memchr(const void *hay, int needle, int len);
-int		ft_memcmp(const void *one, const void *two, int len);
+int		ft_memcmp(const void *one, const void *two, size_t len);
 void	*ft_memcpy(void *dest, const void *src, size_t len);
 void	ft_memdel(void **ap);
 void	*ft_memmove(void *dest, const void *src, size_t num);
