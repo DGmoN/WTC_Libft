@@ -6,13 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 17:33:17 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 17:34:14 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/21 07:31:14 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
 void	ft_putchar_fd(char e, int fd)
 {
-	write(fd, $e, 1);
+	write(fd, &e, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:28:02 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/15 07:33:41 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/21 07:49:42 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_strdup(const char *src)
 	int		len;
 	char	*buffer;
 
-	len = ft_strlen(src) + 1;
-	buffer = (char *)malloc(sizeof(char *) * (len));
-	ft_memcpy(buffer, src, len);
+	len = ft_strlen(src);
+	buffer = (char *)ft_memalloc(sizeof(char) * (len + 1));
+	if (buffer == (char *)NULL)
+		return ((char *) NULL);
+	ft_memcpy(buffer, src, len + 1);
 	buffer[len] = '\0';
 	return (buffer);
 }
