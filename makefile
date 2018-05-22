@@ -17,12 +17,13 @@ NAME=libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR)
-	ar rc $(NAME) $(OBJ_DIR)
+	@ar rc $(NAME) $(OBJ_DIR)
 	@ranlib $(NAME)
+	@echo "LIB MADE"
 
 $(OBJ_DIR): $(DEP)
 	@echo "Making $@"
-	$(GC) -c $*.c -o $@ $(FLAGS)
+	@$(GC) -c $*.c -o $@ $(FLAGS)
 
 re: fclean all;
 
