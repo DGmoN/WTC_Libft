@@ -6,11 +6,11 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 01:40:43 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 01:47:25 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:48:14 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char a)
+int	ft_isascii(int a)
 {
-	return (a >= 32 || a <= 126);
+	return (0 <= a && a <= 127);
 }

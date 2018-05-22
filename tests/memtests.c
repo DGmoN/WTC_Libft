@@ -1,19 +1,12 @@
 #include "../libft.h"
+#include "utils/util.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
-#define OK printf("[O.K.]\n")
-#define OKI(a, b) printf("[O.K.] : %i == %i\n", a, b)
-#define OKP(a, b) printf("[O.K.] : %p == %p\n",a ,b)
-
-#define NOK printf("[NOJOY]\n")
-#define NOKP(a, b) printf("[NOJOY] : %p == %p\n",a ,b)
-#define NOKI(a, b) printf("[NOJOY] : %i != %i\n", a, b)
-
 void	test_memalloc()
 {
-	printf("MEMALLOC:\t\t\t\t\t\t");
+	put_head(" MEMALLOC ");
 	size_t max = 20;
 	char *a = ft_memalloc(sizeof(char *) * max);
 	char *b = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
@@ -32,7 +25,7 @@ void	test_memalloc()
 
 void	test_memcmp()
 {
-	printf("\n**************************\n\n*** MEMCMP ***************\n\n**************************\n");
+	put_head(" MEMCMP ");
 	char *a = "THIS IS A STRING";
 	char *b = "this is a string";
 	char *c = "THIS IS A STRING";
@@ -63,7 +56,7 @@ void	test_memcmp()
 
 void	test_memset()
 {
-	printf("\n**************************\n\n*** MEMSET ***************\n\n**************************\n");
+	put_head(" MEMSET ");
 
 	size_t max = 20;
 	char a[max];
@@ -83,7 +76,7 @@ void	test_memset()
 
 void	test_memmove()
 {
-	printf("\n**************************\n\n*** MEMMOVE **************\n\n**************************\n");
+	put_head(" MEMMOVE ");
 	int max = 20;
 	char *a = "Maybe 10 long";
 	char b[max];

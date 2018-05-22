@@ -6,13 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 01:20:27 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/22 08:12:12 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:34:57 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_isdigit(char e)
+int	ft_isdigit(int e)
 {
 	return (e >= '0' && e <= '9');
 }

@@ -6,35 +6,44 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:47:15 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/22 07:52:16 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:34:02 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
+#include <stdio.h>
 
 int	ft_atoi(char const *str)
 {
-	size_t	strlenn;
+	int		total;
 	size_t	index;
 	int		sign;
-	int		ret;
 
-	strlenn = ft_strlen(str) - 1;
+	sign = 1;
+	total = 0;
 	index = 0;
-	ret = 0;
-	sign = 0;
-	if (str[0] == '+')
-	    sign = 1;
-	else if (str[0] == '-')
-	    sign = -1;
-	index += ABS(sign);
 	while (str[index] != '\0')
 	{
-	    if(!ft_isdigit(str[index]))
-	        return (0);
-		ret += (str[index] - '0') * ft_intpow(10, strlenn - index) * sign;
+	//	printf("[%i]\n", total);	
+		if (!WSPACE(str[index]) )
+		{
+			if(total == 0 && str[index] == '-' && ft_isdigit(str[index + 1]))
+				sign = -1;
+			else if (ft_isdigit(str[index]))
+			{
+				total *= 10;
+				total += str[index] - '0';
+			}
+			else
+				break;
+		}
 		index++;
 	}
-	return (ret);
+	total *= sign;
+	if (sign == 1 && total < 0)
+		return (-1);
+	if (sign == -1 && total > 0)
+		return (0);
+	return (total);
 }

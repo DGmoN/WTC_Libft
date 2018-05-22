@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:26:01 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 11:29:02 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 12:31:38 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@
 char	*ft_strrchr(char const *hay, int needle)
 {
 	size_t	offset;
+	size_t	len;
 	char	*last;
+
+	len = ft_strlen(hay);
 
 	last = (char *)NULL;
 	offset = 0;
-	while (hay[offset - 1] != '\0')
+	while (hay[offset] != '\0')
 	{
 		if (hay[offset] == needle)
 			last = (char *)hay + offset;
 		offset++;
 	}
+	if (hay[offset] == needle)
+		last = (char *)hay + offset;
 	return (last);
 }

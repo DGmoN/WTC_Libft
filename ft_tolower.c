@@ -6,11 +6,13 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 01:50:14 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 01:50:59 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 09:33:01 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(char a)
+#include "libft.h"
+
+int	ft_tolower(int a)
 {
 	if (a >= 'A' && a <= 'Z')
 		return ((a - 'A') + 'a');

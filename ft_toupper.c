@@ -6,11 +6,11 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 01:48:58 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/22 08:28:36 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 09:35:15 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(char a)
+int	ft_toupper(int a)
 {
 	if (a >= 'a' && a <= 'z')
 		return ((a - 'a') + 'A');

@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 00:08:48 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/21 14:28:31 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 11:52:05 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ size_t	ft_strlcat(char *dest, char const *src, size_t max)
 	size_t		index;
 
 	dhld = dest;
-	available = max;	
-	while (available != 0 && *dhld != '\0')
-	{
-		available--;
+	available = max;
+	while (available-- != 0 && *dhld != '\0')
 		dhld++;
-	}
 	dstlen = dhld - dest;
 	available = max - dstlen;
 	if (available == 0)
@@ -38,7 +35,10 @@ size_t	ft_strlcat(char *dest, char const *src, size_t max)
 			dest[dstlen + index] = src[index];
 		index++;
 	}
-	dest[max - 1] = '\0';
+	if (dstlen + index == max)
+		dest[dstlen + index - 1] = '\0';
+	else
+		dest[dstlen + index] = '\0';
 	return (dstlen + (index));
 }
 

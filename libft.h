@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 11:21:33 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/21 09:40:03 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:36:43 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define LIBFT_H
 # define ITOA_CHARS "0123456789ABCDEFG"
 # define ABS(x) ((x < 0)? x * -1: x)
-# define WSPACE(x) (x == '\t' || x == '\n' || x == ' ')
+# define WSPACE(x) (x == '\t' || x == '\n' || x == ' ' || x == '\r' || x == '\v' || x == '\f')
+# define OPPERA(x) (x == '*' || x == '/' || x == '+' || x == '-' || x == '^' x == '%')
 
 # include <string.h>
 typedef	unsigned char	t_byte;
@@ -22,10 +23,10 @@ typedef	unsigned char	t_byte;
 int     ft_atoi(char const *str);
 void	ft_bzero(void *start, size_t len);
 int     ft_intpow(int a, int b);
-int     ft_isalpha(char e);
-int	    ft_isalnum(char e);
-int	    ft_isascii(char a);
-int	    ft_isdigit(char e);
+int     ft_isalpha(int e);
+int	    ft_isalnum(int e);
+int	    ft_isascii(int a);
+int	    ft_isdigit(int e);
 char	*ft_itoa(int a);
 void	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *dest, const void *src, int limchar, size_t maxchar);
@@ -60,8 +61,8 @@ char	*ft_strrchr(char const *hay, int needle);
 char	**ft_strsplit(const char *str, char delim);
 char	*ft_strstr(char const *big, char const *little);
 char	*ft_strtrim(const char *e);
-int     ft_tolower(char a);
-int     ft_toupper(char a);
+int     ft_tolower(int a);
+int     ft_toupper(int a);
 int     ft_isprint(int e);
 
 #endif

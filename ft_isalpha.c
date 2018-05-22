@@ -6,11 +6,11 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 01:17:40 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/19 01:19:56 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:34:41 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char e)
+int	ft_isalpha(int e)
 {
 	return ((e >= 'a' && e <= 'z') ||
 			(e >= 'A' && e <= 'Z'));
