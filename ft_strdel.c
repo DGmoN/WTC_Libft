@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 07:21:19 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 07:24:50 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char e, int fd)
+void	ft_strdel(char **av)
 {
-	int	*unicode;
-
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
-	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
-	}
+	if(av)
+		if(*av)
+			ft_memdel((void **)av);
 }

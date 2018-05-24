@@ -42,7 +42,7 @@ int main()
 	(i1 == i2? OK: NOK);
 
 	put_head(" STRNSTR ");
-	size_t	max = strlen(a);
+	size_t	max = strlen(a) + 1;
 	A = ft_strnstr(a, b, max);
 	B = strnstr(a, b, max);
 	printf("#1 Find 'idea': %s, %s\t\t\t", A, B);
@@ -75,4 +75,28 @@ int main()
 	i2 = ft_strnstr(s1, s2, max);
 	printf("SIMPLE!! %s, %s", i2, i1 );
 	(i1 == i2? OK: NOK);
+
+	char buff[11];
+
+	bzero(buff, 11);
+	strcpy(buff, "un deux 9");
+	buff[9] = '6';
+	i1 = strnstr(buff, "6", 10);
+	i2 = ft_strnstr(buff, "6", 10);
+	printf("One!! %s, %s", i2, i1 );
+	(ft_strcmp(i1, i2) == 0? OK: NOK);
+
+	i2 = ft_strnstr(buff, "6", 8);
+	printf("Not found!! %s, %s", i2, ((void *)0) );
+	(i2 == ((void *)0)? OK: NOK);
+
+
+	char    buf2[] = "ozarabozaraboze123";
+	i1 = strnstr(buf2, "ozaraboze", 15);
+	printf("BIG AT END %s, %s", i2, i1 );
+	i2 = ft_strnstr(buf2, "ozaraboze", 15);
+    if(strcmp(i1, i2) == 0 && )
+		OK;
+	else
+		NOK;
 }

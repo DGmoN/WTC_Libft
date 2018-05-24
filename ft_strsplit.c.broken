@@ -6,48 +6,56 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 16:33:16 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 10:13:34 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/23 16:50:53 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static unsigned int		count_spaces(const char *str, char delim)
+{
+	int a;
+	unsigned int count;
+
+	a = 0;
+	count = 0;
+	while (str[a])
+	{
+		if(str[a] == delim && str[a + 1] != delim)
+			count++;
+		a++;
+	}
+	return (count);
+}
 
 char			**ft_strsplit(const char *str, char delim)
 {
+	unsigned int	amount;
 	char			**ret;
-	int				end;
-	int				start;
-	int				put;
-	int				get;
+	char			*dup;
+	int				index;
 
 	if (!str)
 		return ((char **)NULL);
-	ret = (char **)ft_memalloc(sizeof(char *) * ft_count_w(str, delim));
+	dup = ft_strtrim_delim(ft_strdup(str), delim);
+	amount  = count_spaces(dup, delim);
+	ret = (char **)ft_memalloc(sizeof(char **) * (amount));
 	if (!ret)
-		return ((char **)NULL);
-	start = -1;
-	end = -1;
-	put = 0;
-	get = 0;
-	while (str[get])
+		return ((char *)NULL);
+	ret[0] = dup;
+	index = 1;
+	while (*dup != '\0')
 	{
-
-		//printf("S->%i E->%i\n", start, end);
-		if(str[get] == delim && start == end)
-			start = end = get;
-		else if (str[get] == delim && start != end)
+		if (*dup == delim && *(dup + 1) != delim)
 		{
-			ret[put++] = ft_strndup(str + start + 1, end - start);
-		//	printf("%s : \n",ret[put - 1]);
-			start = end = get;
+			*dup = '\0';
+			ret[index] = (dup + 1);
+			index++;
 		}
-		else
-			end = get;
-		get++;
+		if (*(dup - 1) != delim && *dup == delim)
+			*dup = '\0';
+		dup++;
 	}
-	if (start != end)
-		ret[put++] = ft_strndup(str + start + 1, end - start); 
-	ret[put] = (char *)NULL;
+	ret[index] = (char *)NULL;
 	return (ret);
 }

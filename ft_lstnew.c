@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/24 13:51:41 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/24 15:24:51 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char e, int fd)
+t_list	*ft_lstnew(void const *content, size_t content_s)
 {
-	int	*unicode;
-
-	if (ft_isascii(e))
-		write(fd, &e, 1);
+	t_list *ret;
+	
+	ret = (t_list *)ft_memalloc(sizeof(ret));
+	if (!ret)
+		return ((t_list *)NULL);
+	if (!content)
+	{
+		ret->content_size = 0;
+		ret->content = NULL;
+	}
 	else
 	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
+		ret->content_size = content_s;
+		ret->content = ft_memalloc(ret->content_size);
+		ft_memcpy(ret->content, content, ret->content_size);
 	}
+	ret->next = NULL;
+	return (ret);
 }

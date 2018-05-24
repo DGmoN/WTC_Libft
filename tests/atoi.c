@@ -1,5 +1,7 @@
 #include "../libft.h"
 #include "utils/util.h"
+#include <stdlib.h>
+#include <string.h>
 
 int	main(void)
 {
@@ -11,6 +13,8 @@ int	main(void)
 	char *d = "\n\t\v\f\r -0123";
 	char *e = "-123THERE IS A NYANCAT UNDER YOUR BED";
 	char *f = "\t\v\f\r\n \f- \f\t\n\r    06050";
+	char *g = "+85557";
+	char *h = "\n          42 24 96 77 12 47";
 
 	int A = ft_atoi(a);
 	int B = atoi(a);
@@ -42,6 +46,15 @@ int	main(void)
 	printf("PAIN %i ?= %i:", A,B);
 	(A==B?OK:NOKI(A,B));
 
+	A = ft_atoi(g);
+	B = atoi(g);
+	printf("Wif+ %i ?= %i:", A,B);
+	(A==B?OK:NOKI(A,B));
+
+	A = ft_atoi(h);
+	B = atoi(h);
+	printf("Unclean %i ?= %i:", A,B);
+	(A==B?OK:NOKI(A,B));
 
 
 

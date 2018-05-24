@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_count_w.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/24 08:27:08 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/24 08:35:29 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
-
-void	ft_putchar_fd(char e, int fd)
+unsigned int	ft_count_w(const char *str, char delim)
 {
-	int	*unicode;
+	int a;
+    unsigned int count;
 
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
-	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
-	}
+    a = 0;
+    count = 0;
+    while (str[a])
+    {
+        if(str[a] == delim && str[a + 1] != delim)
+            count++;
+        a++;
+    }
+    return (count);
 }

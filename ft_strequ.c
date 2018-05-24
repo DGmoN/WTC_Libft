@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 07:54:23 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 10:38:27 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-#include <unistd.h>
+#include <string.h>
 
-void	ft_putchar_fd(char e, int fd)
+int	ft_strequ(const char *a, const char *b)
 {
-	int	*unicode;
-
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
-	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
-	}
+	if (!a || !b)
+		return ((int) NULL);
+	return (ft_strcmp(a, b) == 0);
 }

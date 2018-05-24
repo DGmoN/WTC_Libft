@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 21:18:06 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/16 07:43:58 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/23 10:24:06 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 char	*ft_strnew(size_t len)
 {
-	return (ft_memalloc(len + 1));
+	
+	return ((char *) ft_memalloc((len + 1)));
 }

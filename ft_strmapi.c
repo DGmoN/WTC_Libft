@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/16 08:45:56 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/20 11:33:04 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 07:52:46 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 07:53:47 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ char	*ft_strmapi(char const *srt, char (*f)(unsigned int, char))
 	size_t	len;
 	size_t	pos;
 
+	if (!srt || !f)
+		return ((char *) NULL);
 	pos = 0;
 	len = ft_strlen(srt);
-	ret = ft_strnew(len);
-	while (srt[len] != '\0')
+	ret = (char *)ft_memalloc(len + 1);
+	if (!ret)
+		return ((char *) NULL);
+	while (srt[pos] != '\0')
 	{
 		ret[pos] = f(pos, srt[pos]);
 		pos++;

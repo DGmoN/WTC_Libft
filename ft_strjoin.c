@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 08:19:18 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 08:45:26 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char e, int fd)
+char	*ft_strjoin(const char *a, const char *b)
 {
-	int	*unicode;
+	char	*ret;
+	size_t	tlen;
 
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
-	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
-	}
+	if(!a || !b)
+		return ((char *)NULL);
+	tlen = ft_strlen(a) + ft_strlen(b);
+	ret = (char *)ft_memalloc(sizeof(char *) * tlen + 1);
+	if (!ret)
+		return ((char *)NULL);
+	ft_strcat(ret, a);
+	ft_strcat(ret, b);
+	return (ret);
 }

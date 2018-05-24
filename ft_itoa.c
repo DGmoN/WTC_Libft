@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 09:10:38 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/22 09:10:41 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/24 11:42:42 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static char	*ft_itoa_b(int num, int base)
 	if (num < 0 && base == 10)
 		str_len += 1;
 	bbuffer = ft_strnew(str_len);
+	if(!bbuffer)
+		return ((char *)NULL);
 	index = str_len - 1;
 	holder = num;
 	while (index >= 0)

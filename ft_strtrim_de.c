@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim_de.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/16 08:40:57 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/23 07:52:03 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/24 15:04:07 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/24 15:04:12 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-char	*ft_strmap(char const *srt, char (*f)(char))
+char	*ft_strtrim_de(const char *e, int (*is)(int))
 {
-	char	*ret;
+	unsigned int start;
+	unsigned int end;
 	size_t	len;
-	size_t	pos;
-
-	if (!srt || !f)
-		return ((char *) NULL);
-	pos = 0;
-	len = ft_strlen(srt);
-	ret = (char *)ft_memalloc(len + 1);
-	if (!ret)
-		return ((char *) NULL);
-	while (srt[pos] != '\0')
+	char	*ret;
+	
+	if (!e)
+		return ((char *)NULL);
+	start = 0;
+	while (e[start] != '\0' && is(e[start]))
+		start++;
+	end = 0;
+	len = 0;
+	while (e[start + len] != '\0')
 	{
-		ret[pos] = f(srt[pos]);
-		pos++;
+		if (!is(e[start + len]))
+			end = len;
+		len++;
 	}
+	ret = ft_strnew(end + 1);
+	if (!ret)
+		return ((char *)NULL);
+	ret = ft_strncpy(ret, e + start, end + 1);
 	return (ret);
 }

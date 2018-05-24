@@ -6,7 +6,7 @@
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 21:08:19 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/15 21:17:44 by wgourley         ###   ########.fr       */
+/*   Updated: 2018/05/23 07:13:56 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	*ap = NULL;
+	if(ap)
+		if (*ap)
+		{
+			free(*ap);
+			*ap = NULL;
+		}
 }

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 17:24:48 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 17:28:23 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char e, int fd)
+char	*ft_strndup(const char *src, size_t max)
 {
-	int	*unicode;
+	int		len;
+	char	*buffer;
 
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
-	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
-	}
+	len = ft_mini(ft_strlen(src), max);
+	buffer = (char *)ft_memalloc(sizeof(char) * (len + 1));
+	if (buffer == (char *)NULL)
+		return ((char *) NULL);
+	ft_memcpy(buffer, src, len + 1);
+	buffer[len] = '\0';
+	return (buffer);
 }

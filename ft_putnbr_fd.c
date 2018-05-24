@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/24 11:50:27 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/24 17:52:35 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putchar_fd(char e, int fd)
+void	ft_putnbr_fd(int a, int fd)
 {
-	int	*unicode;
-
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
+//	printf("%i \n", a);
+	if(a < 0)
 	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
+		ft_putchar_fd('-', fd);
+		if (-(a/10) != 0)
+			ft_putnbr_fd(-(a / 10), fd);
+		ft_putnbr_fd(-(a % 10), fd);
 	}
+	else if (a >= 10)
+	{	
+		ft_putnbr_fd(ABS(a / 10), fd);
+		ft_putnbr_fd(ABS(a % 10), fd);
+	}
+	else
+		ft_putchar_fd(a + '0', fd);
 }

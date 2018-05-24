@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_memchr_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 11:45:32 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/24 11:45:34 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/23 17:17:39 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/23 17:17:58 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include <string.h>
 
-void	ft_putchar_fd(char e, int fd)
+void	*ft_memchr_n(const void *hay, int needle, size_t len)
 {
-	int	*unicode;
+	size_t			index;
+	unsigned char	*in;
 
-	if (ft_isascii(e))
-		write(fd, &e, 1);
-	else
+	in = (unsigned char *)hay;
+	index = 0;
+	while (index < len)
 	{
-		unicode = (int *) ft_memalloc(sizeof(int) * 2);
-		ft_memcpy(unicode, "\u00f8", 2);
-		unicode[1] = e;
-		write(fd, unicode, 2);
+		if (in[index] != (unsigned char)needle)
+			return ((void *)hay + index);
+		index++;
 	}
+	return ((void *)NULL);
 }

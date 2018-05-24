@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgourley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 15:06:40 by wgourley          #+#    #+#             */
-/*   Updated: 2018/05/22 15:26:03 by wgourley         ###   ########.fr       */
+/*   Created: 2018/05/19 00:29:07 by wgourley          #+#    #+#             */
+/*   Updated: 2018/05/24 17:26:05 by wgourley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,28 @@
 
 char	*ft_strnstr(char const *big, char const *little, size_t max)
 {
-	size_t	ltlen;
+	size_t	internal;
 	size_t	index;
-	size_t	bglen;
-	size_t	seeking;
-	char	*ret;
 
-	ltlen = ft_strlen(little);
-	bglen = ft_strlen(big);
-	index = 0;
-	ret = (char *)NULL;
-	if(ltlen > bglen)
+	if (!ft_strlen(big))
 		return ((char *)NULL);
-	if (ltlen == 0 || ltlen == bglen)
-		return ((char *)big);
-	while (big[index] != '\0' && index < max)
+	if (!strlen(little))
+		return ((char *)(big));
+	index = 0;
+	internal = 0;
+	while (index < max && big[index])
 	{
-		seeking = 0;
-		while (little[seeking] != '0')
+//		printf("[%i : %i] >> %c\n", index, internal, big[index]);
+		if (little[internal] != big[index])
 		{
-//			printf("[%i, %i]\n", index, seeking);
-			if (little[seeking] != big[index + seeking] && index + seeking < max)
-				break ;
-			seeking++;
+			index = index - internal;
+			internal = 0;
 		}
-		if (little[seeking] == '\0')
-			return ((char *) big + index);
+		else if (little[internal + 1] == '\0')
+			return ((char *)big + index - internal);
+		else
+			internal++;
 		index++;
 	}
-
-	return (ret);
+	return ((char *)NULL);
 }
